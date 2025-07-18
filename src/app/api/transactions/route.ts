@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
 
   // Filter data
   const filtered = mockTransactions
-    .filter((transaction) => !currency || transaction.currency === currency)
+    .filter((transaction) => !currency || transaction.currency.toUpperCase() === currency)
     .filter((transaction) => !status || transaction.status === status);
 
   // If no pagination params provided, return all
